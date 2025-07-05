@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Your Plant's Leaf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url(Wow.jpg);
+            background-color: #f0f8ff;
+            background-position: cover;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        #bttn{
+            border-radius: 20px;
+            width: 500px;
+            justify-content: center;
+            text-align: center;
+            margin-left: 500px;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 36px;
+            margin-left: 560px;
+            margin-top: 200px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .feedback {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scan Your Plant Leaf</h2>
+    <button id="bttn" onclick="triggerScan()">Scan Leaf</button>
+    <p id="scanFeedback"></p>
+  
+    <video id="video" width="320" height="240" autoplay style="display:none;"></video>
+    <input type="file" id="uploadInput" accept="image/*" style="display:none;" onchange="handleUpload(event)">
+  
+    <script>
+
+      function triggerScan() {
+        const useCamera = confirm("Would you like to use your camera to scan the plant leaf? Click 'Cancel' to upload an image instead.");
+  
+        if (useCamera) {
+          startCamera();
+        } else {
+          document.getElementById('uploadInput').click();
+        }
+      }
+  
+      function startCamera() {
+        const video = document.getElementById('video');
+        video.style.display = 'block';
+  
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+            document.getElementById('scanFeedback').innerHTML = "Camera started. Hold the leaf in view.";
+          })
+          .catch(function (err) {
+            document.getElementById('scanFeedback').innerHTML = "Camera access denied or not available.";
+            console.error("Error accessing camera: ", err);
+          });
+      }
+  
+      
+      function handleUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+          document.getElementById('scanFeedback').innerHTML = "Image uploaded. Processing...";
+         
+          console.log("Image file:", file);
+        }
+      }
+    </script>
+   
+</body>
+</html>

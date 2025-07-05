@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planten | Life in love with plants</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f6f9f7;
+    }
+    .nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 21px 50px 21px 36px;
+      background: #346652;
+      box-sizing: border-box;
+    }
+    .nav .logo {
+      font-weight: bold;
+      color: #fff;
+      font-size: 1.2rem;
+      letter-spacing: -1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 38px;
+      list-style: none;
+      color: #ecf7eb;
+      font-size: 1.02rem;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #f9ec88;
+      transition: width 0.3s ease;
+    }
+    .nav-links li:hover::after {
+      width: 100%;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      position: relative;
+      transition: color 0.25s ease;
+    }
+    .nav-links li:hover {
+      color: #f9ec88;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 18px;
+    }
+    .shop-btn {
+      background: #fff;
+      color: #346652;
+      border: none;
+      padding: 8px 22px;
+      border-radius: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.17s, color 0.13s;
+    }
+    .shop-btn:hover {
+      background: #f9ec88;
+      color: #222;
+    }
+    .user-btn {
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.32rem;
+      margin-left: 12px;
+      cursor: pointer;
+    }
+    .top-section {
+      background: #356c51;
+      padding: 60px 0 0 0;
+      color: #fff;
+      border-bottom-left-radius: 54px;
+      border-bottom-right-radius: 54px;
+      min-height: 390px;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+    .top-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 0 48px 0 48px;
+    }
+    .summary {
+      flex: 1.3;
+      padding-right: 24px;
+    }
+    .summary h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      margin: 0 0 26px 0;
+      max-width: 340px;
+    }
+    .facts {
+      display: flex;
+      gap: 32px;
+      margin-top: 39px;
+      font-size: 1.1rem;
+    }
+    .fact {
+      min-width: 110px;
+    }
+    .fact strong {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .plant-img-container {
+      flex: 1.1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+      flex-shrink: 0;
+      margin: auto;
+    }
+    .plant-img-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 12px 39px rgba(40,80,49,0.10);
+      background: #fff;
+      position: relative;
+      z-index: 3;
+    }
+    .circle-bg {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      left: calc(50% - 170px);
+      top: 30px;
+      background: #f3fbee;
+      z-index: 1;
+    }
+    .desc {
+      flex: 1.1;
+      padding-left: 20px;
+      font-size: 1.13rem;
+      color: #e1eddf;
+    }
+    .bottom-section {
+      background: #fff;
+      padding: 80px 0 60px 0;
+      display: flex;
+      justify-content: center;
+      border-radius: 46px;
+      margin: -40px auto 0 auto;
+      max-width: 1180px;
+      box-shadow: 0 6px 28px 0 rgba(52, 102, 82, 0.06);
+      z-index: 3;
+      position: relative;
+    }
+    .bottom-content {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 55px;
+      padding: 0 44px;
+      flex-wrap: wrap;
+    }
+    .bottom-img {
+      width: 172px;
+      height: 244px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 12px 39px rgba(40,80,49,0.11);
+      background: #f8faf9;
+    }
+    .bottom-text {
+      min-width: 270px;
+      max-width: 410px;
+      color: #2c4634;
+    }
+    .bottom-text h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 19px;
+    }
+    .bottom-text p {
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+      color: #527b59;
+    }
+    .read-more-btn {
+      background: linear-gradient(90deg, #8eda8e 0%, #5ebca2 100%);
+      color: #fff;
+      border: none;
+      border-radius: 18px;
+      font-weight: 600;
+      padding: 11px 30px;
+      font-size: 1.04rem;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.15s;
+    }
+    .read-more-btn:hover {
+      background: linear-gradient(90deg, #5ebca2 0%, #8eda8e 100%);
+      transform: translateY(-2px) scale(1.05);
+    }
+    @media (max-width: 950px) {
+      .top-content, .bottom-content {
+        flex-direction: column;
+        padding: 0 12px;
+        text-align: center;
+        gap: 28px;
+      }
+      .desc, .summary {
+        padding: 0;
+      }
+      .top-section {
+        border-radius: 0 0 29px 29px;
+        padding-bottom: 30px;
+      }
+      .bottom-section {
+        border-radius: 20px;
+        padding: 40px 0 18px 0;
+        margin: -20px auto 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="logo">Planten <span style="font-size:1.1em;">🌱</span></div>
+    <ul class="nav-links">
+      <a href="" style="text-decoration: none;"><li>Home</li></a>
+      <a href="Working.html" style="text-decoration: none;"><li>How It works</li></a>
+      <a href="scan.html" style="text-decoration: none;"><li>Scan leaf</li></a>
+      <a href="care.html" style="text-decoration: none;"><li>Plant Care Tips</li></a>
+    </ul>
+    <div class="nav-actions">
+      <a href="start.html" style="text-decoration: none;">
+      <button class="shop-btn">Check My Plant 🌱</button>
+      </a>
+      <a href="yeah.html" style="text-decoration: none;">
+      <button class="user-btn" aria-label="User">
+        <svg width="28" height="28" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M5 19a7 7 0 0 1 14 0"/></svg>
+        
+      </button>
+    </a>
+    </div>
+  </nav>
+  <div class="top-section">
+    <div class="top-content">
+      <div class="summary">
+        <h1>Your Smart Plant Helper</h1>
+        <div class="facts">
+          <div class="fact"><strong>Instant</strong>Leaf Diagnosis<br/>with smart AI</div>
+          <div class="fact"><strong>3+</strong>Conditions detected<br/>Healthy, Dry, Sunburned</div>
+        </div>
+      </div>
+      <div class="plant-img-container">
+        <div class="circle-bg"></div>
+        <img src="1.png" alt="Main Plant" class="plant-img-main" />
+      </div>
+      <div class="desc">
+        Curious about how healthy your plant leaves are? Upload a photo and get an instant diagnosis with our AI-powered Smart Plant Helper.
+        <br><br>
+        <a href="understand.html">
+        <button class="shop-btn" id="shopTopBtn">Understand the Results</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-content">
+      <img src="2.png" alt="Plant 1" class="bottom-img" />
+      <div class="bottom-text">
+        <h2>Check your plant's health in seconds</h2>
+        <p>Just upload a picture of a leaf, and our Smart Plant Helper will tell you it's healthy, dry or sunburned-no guessing needed!</p>
+        <button class="read-more-btn" id="readMoreBtn">Read more</button>
+      </div>
+      <img src="3.png" alt="Plant 2" class="bottom-img" />
+
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-content">
+      <img src="4.png" alt="Plant 1" class="bottom-img" />
+      <div class="bottom-text">
+        <h2>Diagnose Leaf Problems Instantly</h2>
+        <p>Just snap a photo of your plant's leaf, and our Smart Plant Helper will quickly detect if it’s healthy, dry, or sunburned—so you can take action fast!</p>
+        <button class="read-more-btn" id="readMoreBtn">Read more</button>
+      </div>
+      <img src="5.png" alt="Plant 2" class="bottom-img" />
+
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-content">
+      <img src="6.png" alt="Plant 1" class="bottom-img" />
+      <div class="bottom-text">
+        <h2>Know What Your Plant Needs</h2>
+        <p>Upload a photo of a leaf and let our intelligent plant checker reveal whether it needs more water, less sun, or just a little love.</p>
+        <button class="read-more-btn" id="readMoreBtn">Read more</button>
+      </div>
+      <img src="7.png" alt="Plant 2" class="bottom-img" />
+
+    </div>
+  </div>
+  <div class="bottom-section">
+    <div class="bottom-content">
+      <img src="8.png" alt="Plant 1" class="bottom-img" />
+      <div class="bottom-text">
+        <h2>Real-Time Leaf Health Feedback</h2>
+        <p>Snap a picture of your plant’s leaf and get an immediate diagnosis—know if it's thriving, dehydrated, or sunburned in just seconds!</p>
+        <button class="read-more-btn" id="readMoreBtn">Read more</button>
+      </div>
+      <img src="9.png" alt="Plant 2" class="bottom-img" />
+
+    </div>
+  </div>
+</body>
+</html>

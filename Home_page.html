@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>grab.ly | Plants Landing</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #f4f4fa;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      margin: 18px 0;
+      padding: 0 24px;
+    }
+    .logo {
+      font-weight: bold;
+      font-size: 1.15rem;
+      letter-spacing: -1px;
+      color: #333;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      color: #444;
+      font-size: 16px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-links li:hover {
+      color: #67b26f;
+    }
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+    .sign-in-btn {
+      background: #2e8b57;
+      color: #fff;
+      border-radius: 5px;
+      border: none;
+      padding: 8px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.18s;
+    }
+    .sign-in-btn:hover {
+      background: #238146;
+    }
+    .cart-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      border-radius: 4px;
+    }
+    .cart-btn:hover {
+      background: #eef7f1;
+    }
+    .hero {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      margin-bottom: 38px;
+      padding: 56px 0 60px 0;
+      min-height: 390px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 6vw;
+      font-weight: 900;
+      color: #232325;
+      margin: 0 0 18px 0;
+      letter-spacing: -3px;
+    }
+    .hero p.sub {
+      color: #888;
+      font-size: 1.21rem;
+      margin-bottom: 32px;
+    }
+    .explore-btn {
+      background: linear-gradient(90deg, #67b26f 0%, #4ca2cd 100%);
+      color: #fff;
+      border: none;
+      padding: 14px 38px;
+      font-size: 1.12rem;
+      font-weight: bold;
+      border-radius: 28px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(103,178,111,0.07);
+      transition: background 0.18s, transform 0.15s;
+    }
+    .explore-btn:hover {
+      background: linear-gradient(90deg, #4ca2cd 0%, #67b26f 100%);
+      transform: translateY(-2px) scale(1.04);
+    }
+    /* Plant Leaves (decorative bg) */
+    .leaf-bg {
+      position: absolute;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .leaf-top-left {
+      top: -20px;
+      left: -50px;
+      width: 180px;
+      opacity: 0.90;
+      transform: rotate(-6deg);
+    }
+    .leaf-top-right {
+      top: -18px;
+      right: -53px;
+      width: 170px;
+      opacity: 0.87;
+      transform: rotate(18deg) scaleX(-1);
+    }
+    .leaf-bottom-left {
+      bottom: -33px;
+      left: -31px;
+      width: 140px;
+      opacity: 0.82;
+    }
+    .leaf-bottom-center {
+      bottom: -16px;
+      left: 38%;
+      width: 210px;
+      opacity: 0.93;
+      z-index: 2;
+    }
+    .leaf-bottom-right {
+      bottom: -21px;
+      right: -85px;
+      width: 165px;
+      opacity: 0.83;
+      transform: scaleX(-1);
+    }
+    @media (max-width: 800px) {
+      nav {
+        padding: 0 10px;
+      }
+      .container {
+        padding: 0 7px;
+      }
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+      .hero {
+        padding: 35px 0 28px 0;
+      }
+      .hero p.sub {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="logo">grably</div>
+      <ul class="nav-links">
+        <li>Plants</li>
+        <li>Delivery</li>
+        <li>Contact</li>
+      </ul>
+      <div class="nav-actions">
+        <button class="sign-in-btn">Sign in</button>
+        <button class="cart-btn" aria-label="cart">
+          <svg width="23" height="23" fill="none" stroke="#2e8b57" stroke-width="2" viewBox="0 0 20 20"><circle cx="8.5" cy="17" r="1.5" /><circle cx="15" cy="17" r="1.5" /><path d="M2 2h2l2.44 11.01a2 2 0 0 0 2 1.52h7.5a2 2 0 0 0 2-1.55L21 7H5" /></svg> 
+        </button>
+      </div>
+    </nav>
+    <section class="hero">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80" alt="Leaf" class="leaf-bg leaf-top-left" />
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Leaf" class="leaf-bg leaf-top-right" />
+      <img src="https://images.unsplash.com/photo-1424746219973-8fe3bd07d8e3?auto=format&fit=crop&w=400&q=80" alt="Leaf" class="leaf-bg leaf-bottom-left" />
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=450&q=80" alt="Leaf" class="leaf-bg leaf-bottom-center" />
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=510&q=80" alt="Leaf" class="leaf-bg leaf-bottom-right" />
+      <div style="position: relative; z-index: 2;">
+        <h1>Plants</h1>
+        <p class="sub">Shop where you can buy any plant<br/>and we will deliver it straight to your door</p>
+        <button class="explore-btn" id="explorePlantsBtn">Explore plants</button>
+      </div>
+    </section>
+  </div>
+  <script>
+    document.getElementById('explorePlantsBtn').addEventListener('click', function() {
+      alert('Explore plants coming soon!');
+    });
+  </script>
+</body>
+</html>

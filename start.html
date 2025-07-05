@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Your Plant</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(Wow.jpg);
+            
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .feedback {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Check Your Plant</h1>
+    </header>
+
+    <div class="container">
+        <section>
+            <p>If you have already uploaded an image of your plant's leaf, click the button below to check its health condition and receive personalized care advice.</p>
+            
+            <button onclick="checkPlant()">Check Your Plant</button>
+            <div class="feedback" id="checkFeedback"></div>
+        </section>
+
+        <script>
+            // Function for checking the plant (e.g., retrieving analysis from previous uploads)
+            function checkPlant() {
+                document.getElementById('checkFeedback').innerHTML = "Checking your plant's condition... Please wait.";
+                // Add logic here to fetch or display results from previous plant checks
+            }
+        </script>
+    </div>
+
+</body>
+</html>

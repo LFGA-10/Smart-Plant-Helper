@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    body {
+      margin: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: #3E5147;
+    }
+    .contact-section {
+      min-height: 100vh;
+      background: url(better.jpg);
+      position: relative;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(23,36,29,0.75);
+      z-index: 1;
+    }
+    .contact-container {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px 60px 24px;
+    }
+    .contact-header {
+      text-align: center;
+      color: #fff;
+      margin-top: 32px;
+      margin-bottom: 20px;
+    }
+    .contact-header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    .contact-header p {
+      max-width: 700px;
+      margin: 18px auto 0 auto;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #e2e8e4;
+    }
+    
+    .contact-main {
+      display: flex;
+      gap: 36px;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+    .contact-details {
+      flex: 1 1 340px;
+      color: #e5e5e5;
+      margin-top: 36px;
+      margin-left: 16px;
+      max-width: 400px;
+    }
+    .contact-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 38px;
+    }
+    .icon-circle {
+      background: #fff;
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-info-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-info-text span.title {
+      color: #8AB594;
+      font-size: 1.28rem;
+      font-weight: 600;
+    }
+    .contact-info-text span.value {
+      font-size: 1.08rem;
+      color: #fff;
+      margin-top: 2px;
+      font-weight: 400;
+    }
+    .contact-form-box {
+      background: #fff;
+      box-shadow: 0 10px 32px rgba(30,40,36,0.08), 0 2px 8px rgba(30,40,36,0.10);
+      border-radius: 2px;
+      padding: 44px 38px 36px 38px;
+      max-width: 500px;
+      min-width: 320px;
+      margin-right: 20px;
+      flex: 1 1 350px;
+    }
+    .contact-form-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 32px;
+      color: #384637;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form-label {
+      font-size: 1.09rem;
+      color: #555;
+      margin-bottom: 3px;
+      font-weight: 500;
+      display: none;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      border: none;
+      border-bottom: 2px solid #555;
+      outline: none;
+      margin-bottom: 26px;
+      background: transparent;
+      font-size: 1.09rem;
+      padding: 11px 3px 8px 0;
+      color: #2a3430;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #7a8777;
+      opacity: 1;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #6E9680;
+    }
+    .contact-form textarea {
+      min-height: 68px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: #6e9680;
+      color: #fff;
+      font-size: 1.19rem;
+      font-family: inherit;
+      font-weight: 500;
+      padding: 10px 44px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.18s;
+      margin-top: 10px;
+    }
+    .contact-form button:hover {
+      background: #55745f;
+    }
+    @media (max-width: 950px) {
+      .contact-main {
+        flex-direction: column;
+        gap: 22px;
+        align-items: stretch;
+      }
+      .contact-details,
+      .contact-form-box {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      .contact-form-box {
+        margin-bottom: 30px;
+      }
+    }
+    @media (max-width: 600px) {
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+      .contact-form-title {
+        font-size: 1.4rem;
+      }
+      .contact-form-box {
+        padding: 22px 8px 20px 8px;
+        min-width: 0;
+        max-width: 100%;
+      }
+      .contact-details {
+        margin: 0;
+      }
+      .contact-container {
+        padding: 18px 4px 10px 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="contact-section">
+    <div class="overlay"></div>
+    <div class="contact-container">
+      <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Andra Designs is a new website frontend and designing agency that consists of both creativity and innovation to bring big and impossible designs to life.</p>
+      </div>
+      <div class="contact-main">
+        <div class="contact-details">
+          <div class="contact-info">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 24 24" fill="#6e9680"><path d="M12 2C6.48 2 2 6.48 2 12c0 3.32 1.71 6.22 4.28 7.91 0.18 0.13 0.4 0.19 0.62 0.19h9.2c0.22 0 0.44-0.07 0.62-0.19C20.29 18.22 22 15.32 22 12c0-5.52-4.48-10-10-10zm0 15.5c-2.8 0-5.5-1.44-7.16-3.94C5.82 10.36 8.75 8.5 12 8.5s6.18 1.86 7.16 5.06C17.5 16.06 14.8 17.5 12 17.5zm0-7c-1.66 0-3 1.34-3 3 0 1.66 1.34 3 3 3s3-1.34 3-3c0-1.66-1.34-3-3-3z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="title">Address</span>
+              <span class="value">Kigali, Rwanda</span>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="#6e9680" viewBox="0 0 24 24" width="28" height="28"><path d="M19.4,4.21A2,2,0,0,0,17.93,4H6.07A2,2,0,0,0,4.6,4.21,2,2,0,0,0,4,6.07V17.93A2,2,0,0,0,4.21,19.4,2,2,0,0,0,6.07,20h11.86a2,2,0,0,0,1.47-.6,2,2,0,0,0,.6-1.47V6.07A2,2,0,0,0,19.4,4.21ZM6.07,6H17.93l-5.93,4.74ZM19.93,17.93a1,1,0,0,1-1,1H6.07a1,1,0,0,1-1-1V7.27l7,5.59a1,1,0,0,0,1.22,0l7-5.59Z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="title">Email</span>
+              <span class="value">andradesigns@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-info">
+            <div class="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#6e9680" width="28" height="28"><path d="M6.62 10.79a15.93 15.93 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27A12.73 12.73 0 0021 17.15a1 1 0 01.85 1V21a1 1 0 01-1 1A19 19 0 013 4a1 1 0 011-1h3.87a1 1 0 011 .85 12.73 12.73 0 001.89 5.47 1 1 0 01-.27 1.11l-2.2 2.2z"/></svg>
+            </div>
+            <div class="contact-info-text">
+              <span class="title">Phone</span>
+              <span class="value">+250 780 602 022</span>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-box">
+          <div class="contact-form-title">Make an account</div>
+          <div class="contact-form">
+            <form>
+              <label for="fullName" class="contact-form-label">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+
+              <label for="email" class="contact-form-label">Email</label>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+
+              
+              <label for="email" class="contact-form-label">Location</label>
+              <input type="loaction" id="loaction" name="loaction" placeholder="Location" required>
+
+              <label for="message" class="contact-form-label">Status</label>
+              <textarea id="message" name="message" placeholder="Describe the status of your plant here..." required></textarea>
+
+              <button type="submit">Continue</button>
+              <button type="submit">Go back to home page</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
